@@ -1,6 +1,16 @@
-<% if user_signed_in? %>
-  <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-<% else %>
-  <%= link_to 'Sign Up', new_user_registration_path %> |
-  <%= link_to 'Sign In', new_user_session_path %>
-<% end %>
+<div class="text-center mt-10">
+  <h1 class="text-4xl font-bold text-gray-800">Welcome!</h1>
+  <p class="text-lg text-gray-600 mt-4">Rails Basic Template</p>
+
+  <div class="mt-6">
+    <% if user_signed_in? %>
+      <%= link_to 'Sign Out', destroy_user_session_path, method: :delete,
+            class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" %>
+    <% else %>
+      <%= link_to 'Sign Up', new_user_registration_path,
+            class: "bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" %> |
+      <%= link_to 'Sign In', new_user_session_path,
+            class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+    <% end %>
+  </div>
+</div>

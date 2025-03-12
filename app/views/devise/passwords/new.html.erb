@@ -1,0 +1,23 @@
+<div class="max-w-md mx-auto mt-10 p-8 shadow-lg rounded-xl">
+  <div class="w-full max-w-md bg-white p-8 rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold text-center text-gray-700">Forgot Password</h2>
+    <p class="text-sm text-center text-gray-500 mt-2">
+      Enter your email and we'll send you a reset link.
+    </p>
+
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <div class="mt-4">
+        <label class="block text-sm font-medium text-gray-700">Email</label>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500" %>
+      </div>
+
+      <div class="mt-6">
+        <%= f.submit "Send Reset Link", class: "w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition" %>
+      </div>
+    <% end %>
+
+    <div class="mt-4 text-center">
+      <%= link_to "Back to Sign In", new_session_path(resource_name), class: "text-indigo-500 hover:underline" %>
+    </div>
+  </div>
+</div>

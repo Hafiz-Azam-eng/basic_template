@@ -20,11 +20,19 @@
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="bg-gray-100">
+    <div class="fixed top-5 right-5 z-50">
+      <% flash.each do |type, message| %>
+        <% bg_color = type == 'notice' ? 'bg-green-500' : 'bg-red-500' %>
+       <div class="<%= bg_color %> text-white px-4 py-2 rounded shadow-md mb-2">
+          <%= message %>
+        </div>
+      <% end %>
+    </div>
+    <main class="container mx-auto mt-28 px-5 flex">
+      <%= yield %>
+    </main>
   </body>
 </html>
